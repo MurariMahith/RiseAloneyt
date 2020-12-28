@@ -1,0 +1,49 @@
+<div class="card" style="margin: 30px;" *ngIf="!userLoggedIn">
+    <div class="card-header">
+      <b>Sign In as ADMIN</b>
+    </div>
+    <div class="card-body">
+        <form novalidate #addForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Email ID</label>&nbsp;<span class="badge badge-dark">required</span>
+              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Enter your Email-Id here" name="EmailID" [(ngModel)]="email" #EmailID="ngModel" required autocomplete="off">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <p *ngIf="email.errors?.required" class="error">Email ID  is required</p>
+              </div>
+              <div *ngIf="!uerror">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <small *ngIf="uerror" id="emailHelp" class="form-text" style="color: crimson;">Admin account with this email not found. Please try again</small>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Password</label>&nbsp;<span class="badge badge-dark">required</span>
+              <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter Password here"  name="PasswordID" [(ngModel)]="password" #PasswordID="ngModel" required>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <p *ngIf="password.errors?.required" class="error">Password is required</p>
+              </div>
+              <small *ngIf="perror" id="emailHelp" class="form-text" style="color: crimson;">Password entered is incorrect. Please try again</small>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="addForm.form.invalid">Sign In</button>
+            <div *ngIf="addForm.form.invalid">
+                <p class="error" style="color: black;">This button is disabled until are valid fields are filled</p>
+            </div>
+        </form>
+        <p style="color: green;" *ngIf = "toomanyreqs">Too Many requests for this Account. Please try again after sometime or contact developer or clear cache and try again.</p>
+    </div>
+</div>
+
+<div class="card" style="margin: 30px;" *ngIf=(userLoggedIn) style="margin: 5%;border:none;background-color: rgb(31,37,51);color: aliceblue;">
+  <div class="card-header">
+    <b>Signed in as ADMIN</b>
+  </div>
+  <div class="card-body" style="display: flex;justify-content: center;flex-wrap: wrap;background-color: #333545;color: aliceblue;">
+      <h2>User already signed In.</h2>
+      <div class="break"></div>
+      <!-- <button (click)="admingo()" class="btn btn-primary" style="margin: 2%;">Admin Actions</button> -->
+      <a class="btn btn-primary" href="/add" role="button" style="margin: 2%;">Admin Actions</a>
+      <a class="btn btn-primary" href="/editlogoandtitle" role="button" style="margin: 2%;">Edit Logo and Title</a>
+      <a class="btn btn-primary" href="/editscroll" role="button" style="margin: 2%;">Edit Scrolling content</a>
+      <!-- <div class="break"></div> -->
+      <button (click)="logout()" class="btn btn-primary" style="margin: 2%;">Log Out</button>
+  </div>
+</div>

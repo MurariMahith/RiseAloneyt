@@ -1,0 +1,69 @@
+<!-- <div class="logo-display">
+    <img class="img-responsive" title="Rise Alone
+    " src="./../../../assets/images/logo.jpg">
+    <h2 style="color: aliceblue;">Rise Alone Gaming</h2>
+</div> -->
+<div class="logo-display">
+    <img class="img-responsive" title="Rise Alone
+    " [src]="urlForLogo">
+    <h2 style="color: aliceblue;">{{title}}</h2>
+</div>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(31,37,51);">
+        <a class="navbar-brand" href="#" style="margin-left: 4%;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/featured" style="color: white;">Featured</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tech" style="color: white;">Tech</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/live" style="color: white;">Live Streams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mostrecent" style="color: white;">Most Recent</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/search" style="color: white;">Search <span class="badge badge-light">New</span></a>
+                </li>
+                <li class="nav-item" *ngIf="!userLoggedIn">
+                    <a class="nav-link" href="/aboutdevs" style="color: white;">About Devs</a>
+                </li>
+                <li class="nav-item" *ngIf="!userLoggedIn">
+                    <a class="nav-link" href="/admin" style="color: white;">Admin?</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" style="margin-right: 4%;">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" *ngIf="!userLoggedIn">
+                        <a class="nav-link" href="/aboutus" style="color: white;">About Us</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userLoggedIn">
+                        <a class="nav-link" href="/add" style="color: white;">Video Cards</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userLoggedIn">
+                        <a class="nav-link" href="/editlogoandtitle" style="color: white;">Logo and Title</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userLoggedIn">
+                        <a class="nav-link" href="/editscroll" style="color: white;">Scrolling Content</a>
+                    </li>
+                    <li class="nav-item" *ngIf="userLoggedIn">
+                        <a class="nav-link" (click)="logout()" style="color: white;cursor: pointer;">Log Out!</a>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div style="display: none;">If you are playing around in this area I see that you are interested in this stack. Dont worry this SPA is open source except for some areas and you can find this SPA source code in https://github.com/RohithReddy86/dineWithUs and if anywhere in source code anything asks for password it is MuRodinewuAnFiYtv3</div>

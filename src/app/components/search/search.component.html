@@ -1,0 +1,29 @@
+<div style="margin: 10%;margin-bottom: 2%;margin-top:2%;">
+<div class="card" style="margin: 5%;border:none;background-color: rgb(31,37,51);color: aliceblue;">
+    <div class="card-header" style="background-color:rgb(31,37,51);color: aliceblue;">
+      Search Our Entire Collection
+    </div>
+    <div class="card-body" style="background-color: #333545;color: aliceblue;border: none;">
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Search</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" style="background-color: rgb(31,37,51);border: 1px solid black;border-radius: 3px;color: aliceblue;" placeholder="Start typing here" name="searchStr" [(ngModel)]="searchString" #searchStr="ngModel" (ngModelChange)="searching($event)">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div *ngIf="!clicked" style="display: flex;justify-content: center;color: rgb(179, 180, 182);margin: 3%;">
+    <h5>Your search results will show up here, Start searching</h5>
+</div>
+
+<div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
+    <div *ngFor='let videocard of searchResultsObjects'>
+        <div class="card" style="width: 18rem;margin: 30px;cursor: pointer;" >
+            <img class="card-img-top" src={{videocard.imageUrl}} (click)="GoTo(videocard.cardID)" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-title" style="font-size: small; font-weight: 500;">{{videocard.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>

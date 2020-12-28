@@ -1,0 +1,18 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<div style="display: flex;margin: 5% ;justify-content: center;flex-wrap: wrap;">
+    <div style="border-radius: 5px;display: flex;justify-content: center;flex-wrap: wrap;" *ngIf="videoAvailable">
+            <iframe width="90%" height="320" [src]="safeSrc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="break"></div>
+    <h5 style="margin-top: 2%;color: aliceblue;"><i class="material-icons" style="color:red; font-size:20px">favorite</i> {{videoTitle}} </h5>
+    <div class="break"></div>
+    <p style="color: aliceblue;"> {{videoDescription}} </p>
+    <div class="break"></div>
+    <a class="card-link">Likes : {{likes}}</a>
+    <a class="card-link">Views : {{views}}</a>
+    <a class="card-link">Comments : {{comments}}</a>
+</div>
+<div *ngIf="videoAvailableTwo">
+<img src="./../../../assets/images/loadinggif4.gif">
+</div>

@@ -1,0 +1,11 @@
+<dx-gallery #gallery
+    id="gallery"
+    [dataSource]="scrollingImagesFromDb"
+    [height]="300"
+    [slideshowDelay]="slideshowDelay"
+    [loop]="true"
+    [showNavButtons]="true"
+    [showIndicator]="true">
+</dx-gallery>
+
+<!-- If user needs to fast load scrolling images and static images can apply, change above "scrollingImagesFromDb" to "dataSource" -->

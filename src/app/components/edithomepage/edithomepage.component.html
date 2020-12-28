@@ -1,0 +1,75 @@
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: rgb(31,37,51);">
+        <a class="navbar-brand" href="#"style="margin-left: 4%;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/add" style="color: white;cursor: pointer;">Admin Actions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/editlogoandtitle" style="color: white;cursor: pointer;">Edit Logo and Title</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/editscroll" style="color: white;cursor: pointer;">Edit scrolling Photos</a>
+            </li>      
+          </ul>
+        </div>
+      </nav>
+</div>
+
+<!-- <div *ngIf="!scrollBool && !titleBool">
+    <div class="card" style="margin: 5%;">
+        <div class="card-header">
+          Hello ADMIN user
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>Select any of the options below to continue. Thanks!!</p> 
+            <div style="display: flex;justify-content: center;">    
+            <button type="button" class="btn btn-primary" (click)="scrollCardsUpdate()" style="margin: 1%;">Scrolling cards</button>
+            <button type="button" class="btn btn-primary" (click)="titleUpdate()" style="margin: 1%;">Title</button>
+            <button type="button" class="btn btn-primary" (click)="logout()" style="margin: 1%;">Log Out</button>  
+            </div> 
+          </blockquote>
+        </div>
+      </div>
+</div> -->
+
+<!-- <div class="card" style="margin: 30px;">
+    scrolling images
+</div> -->
+
+<div style="margin: 30px;">
+    <div style="display: flex;flex-wrap: wrap;justify-content: center;">
+        <!-- <div style="margin-left: 2%;padding: 1%;" class="card">
+            <img class="img-responsive" title="Rise Alone" src="./../../../assets/images/logo.jpg" width="280" height="400">
+            <h2>Rise Alone Gaming</h2>
+        </div> -->
+        <div class="card" style="width: 20rem;margin: 10px;cursor: pointer;" >
+            <img class="card-img-top" [src]="urlForView" alt="Card image cap">
+            <div class="card-body">
+                <h3>{{title}}</h3>
+            </div>
+        </div>        
+        <div style="margin-left: 2%;padding: 1%;" class="card">
+            <h4>Edit Logo and Title here</h4>
+            <hr>
+            <div class="form-group">                
+                <label for="exampleFormControlFile1">Webiste Logo</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="selectedFile($event)" accept="Image/*"><br>
+                <img [src]="urlForView" width="100" height="100"><span *ngIf="uploaded">
+                  <img src="./../../../assets/images/tick.png" width="30" height="30"></span>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Website Title</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Website Title here" name="Title" [(ngModel)]="title" #Title="ngModel" required>
+            </div>
+            <small style="color: orange;">Please don't click submit until green check mark appears after your selected image. If you dont want to select any image you can proceed with preset or previous Image.</small><br>
+            <button type="button" class="btn btn-success" (click)="UpdateTitleAndLogo()">Update Logo and Title</button>
+        </div>
+    </div>
+</div>
