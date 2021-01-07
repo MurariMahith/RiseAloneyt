@@ -21,40 +21,40 @@
                     <a class="nav-link" href="#" style="color: white;">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/featured" style="color: white;">Featured</a>
+                    <a class="nav-link" href="/featured" style="color: white;" routerLink="/featured" routerLinkActive="active-link">Featured</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/tech" style="color: white;">Tech</a>
+                    <a class="nav-link" href="/tech" style="color: white;" routerLink="/tech" routerLinkActive="active-link">Tech</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/live" style="color: white;">Live Streams</a>
+                    <a class="nav-link" href="/live" style="color: white;" routerLink="/live" routerLinkActive="active-link">Live Streams</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/mostrecent" style="color: white;">Most Recent</a>
+                    <a class="nav-link" href="/mostrecent" style="color: white;" routerLink="/mostrecent" routerLinkActive="active-link">Most Recent</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/search" style="color: white;">Search <span class="badge badge-light">New</span></a>
+                    <a class="nav-link" href="/search" style="color: white;" routerLink="/search" routerLinkActive="active-link">Search <span class="badge badge-light">New</span></a>
                 </li>
                 <li class="nav-item" *ngIf="!userLoggedIn">
-                    <a class="nav-link" href="/aboutdevs" style="color: white;">About Devs</a>
+                    <a class="nav-link" href="/aboutdevs" style="color: white;" routerLink="/aboutdevs" routerLinkActive="active-link">About Devs</a>
                 </li>
                 <li class="nav-item" *ngIf="!userLoggedIn">
-                    <a class="nav-link" href="/admin" style="color: white;">Admin?</a>
+                    <a class="nav-link" href="/admin" style="color: white;" routerLink="/admin" routerLinkActive="active-link">Admin?</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" style="margin-right: 4%;">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item" *ngIf="!userLoggedIn">
-                        <a class="nav-link" href="/aboutus" style="color: white;">About Us</a>
+                        <a class="nav-link" href="/aboutus" style="color: white;" routerLink="/aboutus" routerLinkActive="active-link">About Us</a>
                     </li>
                     <li class="nav-item" *ngIf="userLoggedIn">
-                        <a class="nav-link" href="/add" style="color: white;">Video Cards</a>
+                        <a class="nav-link" href="/add" style="color: white;" routerLink="/add" routerLinkActive="active-link">Video Cards</a>
                     </li>
                     <li class="nav-item" *ngIf="userLoggedIn">
-                        <a class="nav-link" href="/editlogoandtitle" style="color: white;">Logo and Title</a>
+                        <a class="nav-link" href="/editlogoandtitle" style="color: white;" routerLink="/editlogoandtitle" routerLinkActive="active-link">Logo and Title</a>
                     </li>
                     <li class="nav-item" *ngIf="userLoggedIn">
-                        <a class="nav-link" href="/editscroll" style="color: white;">Scrolling Content</a>
+                        <a class="nav-link" href="/editscroll" style="color: white;" routerLink="/editscroll" routerLinkActive="active-link">Scrolling Content</a>
                     </li>
                     <li class="nav-item" *ngIf="userLoggedIn">
                         <a class="nav-link" (click)="logout()" style="color: white;cursor: pointer;">Log Out!</a>

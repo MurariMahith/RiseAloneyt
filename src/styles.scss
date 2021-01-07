@@ -23,8 +23,17 @@
 .nav-link
 {
   border-bottom: 2px solid rgb(31,37,51);
+  border-top: 2px solid rgb(31,37,51);
 }
 .nav-link:hover
 {
   border-bottom: 2px solid white;
+}
+.active-link
+{
+  font-weight: bolder;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  //background-color: #333545;
+  border-radius: 5px;
 }
