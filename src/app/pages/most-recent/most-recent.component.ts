@@ -6,6 +6,8 @@ import { Videocard } from './../../models/NewVideoCard'
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FirebaseDatabaseService } from 'src/app/services/firebaseDatabaseService';
+import { CategoriesDatabaseService } from 'src/app/services/categoriesDatabaseService';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-most-recent',
@@ -20,7 +22,14 @@ export class MostRecentComponent implements OnInit {
   videoCards : Videocard[] = [];
   mostRecentVideoCards : Videocard[] = [];
 
-  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService) { }
+  catobj = {
+    category1 : "`",
+    category2 : "`",
+    category3 : "`",
+    category4 : "`"
+  }
+
+  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService,@Inject(CategoriesDatabaseService) private catDB :CategoriesDatabaseService) { }
 
   ngOnInit(): void {
     //filtering most recent video cards and giving only first four videocards to view
@@ -31,6 +40,20 @@ export class MostRecentComponent implements OnInit {
       this.videoCards.push(this.testVar);  
       this.mostRecentVideoCards = this.videoCards.filter(o => o.videoType["mostrecent"]==true);
       this.mostRecentVideoCards = this.mostRecentVideoCards.reverse();
+    });
+
+    this.catDB.getCategoriesList().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(objectsFromDB => {
+        //console.log(objectsFromDB)
+        this.catobj.category1 = objectsFromDB[0]["category1"];
+        this.catobj.category2 = objectsFromDB[0]["category2"];
+        this.catobj.category3 = objectsFromDB[0]["category3"];
+        this.catobj.category4 = objectsFromDB[0]["category4"];
     });
   }
 

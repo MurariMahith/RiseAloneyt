@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { VIDEOCARDS } from './../../models/Videocards-static';
 // import { Videocard } from './../../models/Videocard';
 import {Inject} from '@angular/core';
+import * as randomA from 'random';
 
 import { Videocard } from './../../models/NewVideoCard'
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FirebaseDatabaseService } from 'src/app/services/firebaseDatabaseService';
 import { HttpClient } from '@angular/common/http';
+import { CategoriesDatabaseService } from 'src/app/services/categoriesDatabaseService';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -33,11 +36,59 @@ export class MainContentComponent implements OnInit {
     channelID = 'UCQBJ3aDHhSJZLduIP8Viqkw';
     ytAPIkey = 'AIzaSyA5tulkmk0ZbBjlAfZQioHFEx4rzN6m5JQ' 
 
-    constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService,@Inject(HttpClient) private http : HttpClient) { }
+    catobj = {
+        category1 : "`",
+        category2 : "`",
+        category3 : "`",
+        category4 : "`"
+      }
+
+      socialobj = {
+        instagram : "",
+        whatsapp : "",
+        youtube : "",
+        discord : "",
+        facebook : "",
+        sourcecode : "",      
+      }
+
+    constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, 
+                @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService,
+                @Inject(HttpClient) private http : HttpClient,
+                @Inject(CategoriesDatabaseService) private catDB :CategoriesDatabaseService) { }
 
     ngOnInit(): void {
 
         localStorage.setItem("developed by","Murari Mahith, Rohith Reddy, Mukesh, Prasanna")
+        this.catDB.getCategoriesList().snapshotChanges().pipe(
+            map(changes =>
+              changes.map(c =>
+                ({ key: c.payload.key, ...c.payload.val() })
+              )
+            )
+          ).subscribe(objectsFromDB => {
+              //console.log(objectsFromDB)
+              this.catobj.category1 = objectsFromDB[0]["category1"];
+              this.catobj.category2 = objectsFromDB[0]["category2"];
+              this.catobj.category3 = objectsFromDB[0]["category3"];
+              this.catobj.category4 = objectsFromDB[0]["category4"];
+          });
+
+          this.catDB.getSocialMediaPageList().snapshotChanges().pipe(
+            map(changes =>
+              changes.map(c =>
+                ({ key: c.payload.key, ...c.payload.val() })
+              )
+            )
+          ).subscribe(objectsFromDB => {
+              //console.log(objectsFromDB)
+              this.socialobj.instagram = objectsFromDB[0]["instagram"];
+              this.socialobj.whatsapp = objectsFromDB[0]["whatsapp"];
+              this.socialobj.youtube = objectsFromDB[0]["youtube"];
+              this.socialobj.discord = objectsFromDB[0]["discord"];
+              this.socialobj.facebook = objectsFromDB[0]["facebook"];
+              this.socialobj.sourcecode = objectsFromDB[0]["sourcecode"];              
+          });
 
         //
     this.service.getAllVideoCards()
@@ -70,6 +121,9 @@ export class MainContentComponent implements OnInit {
             this.viewCount = a["items"][0]["statistics"]["viewCount"];
             this.videoCount = a["items"][0]["statistics"]["videoCount"];
             this.subscribers = a["items"][0]["statistics"]["subscriberCount"]
+          })
+          .catch(() => {
+              console.log("youtube data API is down. Data will be realtime after Youtube API is back online")
           });
     }
 
@@ -81,8 +135,57 @@ export class MainContentComponent implements OnInit {
     {
         console.log("clicked");
         console.log(num);
-        //window.location.href= VIDEOCARDS.find(o => o.cardID === num).ytLink;
+        //very important step
         window.location.href="/base/"+num;
-        //this function is implemented in rohith branch will update at last dont edit this function
+        // document.body.style.backgroundColor = "white";
+        // var x=document.querySelectorAll<HTMLElement>('.card-body');
+        // for (var i = 0; i < x.length; i++) {
+        //     x[i].style.backgroundColor="white";
+        // }
+
+        //random code generator and offer period maker for mukesh app
+        var randomNumStr = Math.floor((Math.random() * 10000000) + 1).toString()
+        if(randomNumStr.length != 7)
+        {
+            for (var i=randomNumStr.length;i<7;i++)
+            {
+                randomNumStr=randomNumStr+'0';
+            }
+        }
+        console.log("dear customer your unique code is: BDAY"+randomNumStr+"MUR")
+        this.getOfferPeriod(new Date("1999-02-28"));
+    }
+
+    getOfferPeriod(date : Date)
+    {
+        console.log(date)
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var dateNow = new Date()
+        var yearNow = dateNow.getFullYear();
+
+        //check for max and min dates
+        var dayFromDate = date.getDate();
+        var minOfferDate = dayFromDate-3;
+        var maxOfferDate = dayFromDate+3;
+        var minOfferMonth = date.getMonth()+1;
+        var maxOfferMonth = date.getMonth()+1;
+
+        var totalDaysInMonth = this.daysInMonth(date.getMonth()+1,yearNow)
+
+        if(dayFromDate+3>totalDaysInMonth)
+        {
+            maxOfferDate = dayFromDate+3-totalDaysInMonth;
+            maxOfferMonth = date.getMonth()+2
+        }
+        if(dayFromDate-3<=0)
+        {
+            minOfferDate = this.daysInMonth(date.getMonth(),yearNow)-(dayFromDate-3);
+            minOfferMonth = date.getMonth();
+        }
+        console.log("offer is valid from "+minOfferDate+"/"+minOfferMonth+"/"+yearNow+" to "+maxOfferDate+"/"+maxOfferMonth+"/"+yearNow);
+    }
+
+    daysInMonth (month, year) {
+        return new Date(year, month, 0).getDate();
     }
 }

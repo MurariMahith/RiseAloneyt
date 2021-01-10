@@ -55,7 +55,7 @@
                 <h3>{{title}}</h3>
             </div>
         </div>        
-        <div style="margin-left: 2%;padding: 1%;" class="card">
+        <!-- <div style="margin-left: 2%;padding: 1%;" class="card">
             <h4>Edit Logo and Title here</h4>
             <hr>
             <div class="form-group">                
@@ -70,6 +70,171 @@
             </div>
             <small style="color: orange;">Please don't click submit until green check mark appears after your selected image. If you dont want to select any image you can proceed with preset or previous Image.</small><br>
             <button type="button" class="btn btn-success" (click)="UpdateTitleAndLogo()">Update Logo and Title</button>
-        </div>
+        </div> -->
     </div>
+</div>
+<div style="display: flex;justify-content: center;">
+<div class="accordion" id="accordionExample" style="width: 80%;margin-bottom: 3%;">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Edit Logo and Title
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <div style="margin-left: 2%;padding: 1%;" class="card">
+          <h4>Edit Logo and Title here</h4>
+          <hr>
+          <div class="form-group">                
+              <label for="exampleFormControlFile1">Webiste Logo</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="selectedFile($event)" accept="Image/*"><br>
+              <img [src]="urlForView" width="100" height="100"><span *ngIf="uploaded">
+                <img src="./../../../assets/images/tick.png" width="30" height="30"></span>
+          </div>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Website Title</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Website Title here" name="Title" [(ngModel)]="title" #Title="ngModel" required>
+          </div>
+          <small style="color: orange;">Please don't click submit until green check mark appears after your selected image. If you dont want to select any image you can proceed with preset or previous Image.</small><br>
+          <button type="button" class="btn btn-success" (click)="UpdateTitleAndLogo()">Update Logo and Title</button>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Edit Website Categories Here
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <div style="margin-left: 2%;margin-top: 2%;padding: 1%;" class="card">
+          <h4>Edit Categories here</h4>
+          <small style="color: gray;">Categories are what you see in the whole website, this website support 4 categories you can name what ever you want them.<br>(Ex:Featured,Tech,Live Streams,Most Recent</small>
+          <hr>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Category 1</label>
+              <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Category 1 name here" required name="Cat1" [(ngModel)]="category1" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Category 2</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Category 2 name here" required name="Cat2" [(ngModel)]="category2" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Category 3</label>
+              <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Category 3 name here" required name="Cat3" [(ngModel)]="category3" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Category 4</label>
+              <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Category 4 name here" required name="Cat4" [(ngModel)]="category4" #Title="ngModel"><br>
+          </div>
+          <button type="button" class="btn btn-success" (click)="UpdateCategories()">Update Categories</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Edit Website Social Media details here
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <div style="margin-left: 2%;margin-top: 2%;padding: 1%;" class="card">
+          <h4>Edit Website Social Media details here</h4>
+          <small style="color: gray;">These are social media links you see on bottom of home page and in about us page. Note: These are different from your(proprietor of {{title}}) social media links.</small>
+          <hr>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Instagram</label>
+              <input type="text" class="form-control" id="formGroupExampleInput01" placeholder="Instagram page link" required name="instagram" [(ngModel)]="socialobj.instagram" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">WhatsApp</label>
+              <input type="text" class="form-control" id="formGroupExampleInput02" placeholder="WhatsApp Group chat invite" required name="whatsapp" [(ngModel)]="socialobj.whatsapp" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Youtube</label>
+              <input type="text" class="form-control" id="formGroupExampleInput03" placeholder="Youtube Channel link" required name="youtube" [(ngModel)]="socialobj.youtube" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Discord</label>
+              <input type="text" class="form-control" id="formGroupExampleInput04" placeholder="Discord Link (if any.)" required name="discord" [(ngModel)]="socialobj.discord" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Facebook</label>
+              <input type="text" class="form-control" id="formGroupExampleInput05" placeholder="Facebook page link" required name="facebook" [(ngModel)]="socialobj.facebook" #Title="ngModel"><br>
+              <label for="formGroupExampleInput">Source Code</label>
+              <input type="text" class="form-control" id="formGroupExampleInput06" placeholder="Source code of this application" required name="srccode" [(ngModel)]="socialobj.sourcecode" #Title="ngModel"><br>
+          </div>
+          <button type="button" class="btn btn-success" (click)="UpdateSocialMediaLinks()">Update Social Media Details</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+            Edit Colors across Website
+          </button>
+        </h2>
+      </div>
+  
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div class="card-body">
+          <div style="margin-left: 2%;margin-top: 2%;padding: 1%;" class="card">
+          <h4>Edit Colors across Website</h4>
+          <small style="color: gray;">Colors in this website are divided into two categories Primary which is most of the color and secondary which you will see in headers. font color will chnage accordingly.</small>
+          <hr>
+          <div class="form-group">
+            <div class="form-check form-check-inline" style="margin:1%">
+              <label class="form-check-label" for="inlineCheckbox1">
+                <div class="card">
+                  <h5 class="card-header">Light Mode</h5>
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <button class="btn btn-success" (click)="UpdateColors('light')">Select</button>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="form-check form-check-inline" style="margin:1%">
+              <label class="form-check-label" for="inlineCheckbox2">
+                <div class="card">
+                  <h5 class="card-header" style="background-color:rgb(31,37,51);color: aliceblue;">Dark Mode</h5>
+                  <div class="card-body" style="background-color: #333545;">
+                    <h5 class="card-title" style="color: aliceblue;">Special title treatment</h5>
+                    <p class="card-text" style="color: aliceblue;">With supporting text below as a natural lead-in to additional content.</p>
+                    <button class="btn btn-success" (click)="UpdateColors('dark')">Select</button>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="form-check form-check-inline" style="margin:1%">
+              <label class="form-check-label" for="inlineCheckbox3">
+                <div class="card">
+                  <h5 class="card-header" style="background-color:black;color: aliceblue;">Deep Dark Mode</h5>
+                  <div class="card-body" style="background-color:rgba(0, 0, 0, 0.904);">
+                    <h5 class="card-title" style="color: aliceblue;">Special title treatment</h5>
+                    <p class="card-text" style="color: aliceblue;">With supporting text below as a natural lead-in to additional content.</p>
+                    <button class="btn btn-success" (click)="UpdateColors('deepdark')">Select</button>a>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="form-check form-check-inline" style="margin:1%">
+              <label class="form-check-label" for="inlineCheckbox4">
+                <div class="card">
+                  <h5 class="card-header glowheader" style="background-color: black;">NEON MODE</h5>
+                  <div class="card-body" style="background-color: black;">
+                    <h5 class="card-title glow" style="color: salmon;">Special title treatment</h5>
+                    <p class="card-text glow" style="color: salmon;">With supporting text below as a natural additional content show.</p>
+                    <button class="btn btn-success" (click)="UpdateColors('neon')">Select</button>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>          
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

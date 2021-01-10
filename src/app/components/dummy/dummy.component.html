@@ -78,19 +78,19 @@
             <div style="margin-left: 2%;">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [(ngModel)]="newCard.videoType.featured" name="featured">
-                <label class="form-check-label" for="inlineCheckbox1">Featured</label>
+                <label class="form-check-label" for="inlineCheckbox1">{{catobj.category1}}</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox2" [(ngModel)]="newCard.videoType.comingsoon" name="comingsoon">
-                <label class="form-check-label" for="inlineCheckbox2">Tech</label>
+                <label class="form-check-label" for="inlineCheckbox2">{{catobj.category2}}</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" [(ngModel)]="newCard.videoType.topviewed" name="topviewed">
-                <label class="form-check-label" for="inlineCheckbox3">Live Streams</label>
+                <label class="form-check-label" for="inlineCheckbox3">{{catobj.category3}}</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" [(ngModel)]="newCard.videoType.mostrecent" name="mostrecent">
-                <label class="form-check-label" for="inlineCheckbox3">Most Recent</label>
+                <label class="form-check-label" for="inlineCheckbox3">{{catobj.category4}}</label>
             </div>
         </div>
             <br>
@@ -192,19 +192,19 @@
           <div style="margin-left: 2%;">
           <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [(ngModel)]="selectedCardForEditing.videoType.featured" name="featured2">
-              <label class="form-check-label" for="inlineCheckbox1">Featured</label>
+              <label class="form-check-label" for="inlineCheckbox1">{{catobj.category1}}</label>
           </div>
           <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox2" [(ngModel)]="selectedCardForEditing.videoType.comingsoon" name="comingsoon2">
-              <label class="form-check-label" for="inlineCheckbox2">Tech</label>
+              <label class="form-check-label" for="inlineCheckbox2">{{catobj.category2}}</label>
           </div>
           <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox3" [(ngModel)]="selectedCardForEditing.videoType.topviewed" name="topviewed2">
-              <label class="form-check-label" for="inlineCheckbox3">Live Streams</label>
+              <label class="form-check-label" for="inlineCheckbox3">{{catobj.category3}}</label>
           </div>
           <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox3" [(ngModel)]="selectedCardForEditing.videoType.mostrecent" name="mostrecent">
-              <label class="form-check-label" for="inlineCheckbox3">Most Recent</label>
+              <label class="form-check-label" for="inlineCheckbox3">{{catobj.category4}}</label>
           </div>
       </div>
           <br>

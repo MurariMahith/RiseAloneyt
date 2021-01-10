@@ -18,10 +18,10 @@ import { EditscrollComponent } from './components/editscroll/editscroll.componen
 
 const routes: Routes = [
   { path: 'home',  component: MainContentComponent },
-  { path: 'featured',  component: FeaturedComponent },
-  { path: 'tech', component: CommingSoonComponent},
-  { path: 'mostrecent', component: MostRecentComponent},
-  { path: 'live', component: TopViewedComponent},
+  { path: 'cat1',  component: FeaturedComponent },
+  { path: 'cat2', component: CommingSoonComponent},
+  { path: 'cat3', component: TopViewedComponent},
+  { path: 'cat4', component: MostRecentComponent},
   { path: 'aboutus', component: AboutUSComponent},
   { path: 'aboutus/:id', component: AboutUSComponent},
   { path: 'base', component: BaseComponent},

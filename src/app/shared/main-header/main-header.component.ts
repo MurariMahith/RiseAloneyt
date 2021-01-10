@@ -3,6 +3,7 @@ import {Inject} from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AuthServiceFirebase } from './../../services/authServiceFirebase';
 import { map } from 'rxjs/operators';
+import { CategoriesDatabaseService } from './../../services/categoriesDatabaseService';
 
 @Component({
   selector: 'app-main-header',
@@ -20,7 +21,14 @@ export class MainHeaderComponent implements OnInit {
 
   userLoggedIn : boolean =false;
 
-  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase,@Inject(AuthServiceFirebase) private authService : AuthServiceFirebase) {
+  catobj = {
+    category1 : "",
+    category2 : "",
+    category3 : "",
+    category4 : ""
+  }
+
+  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase,@Inject(AuthServiceFirebase) private authService : AuthServiceFirebase,@Inject(CategoriesDatabaseService) private catDB :CategoriesDatabaseService) {
 
     this.customersRef = db.list(this.dbPathLogoAndTitle);
    }
@@ -47,6 +55,20 @@ export class MainHeaderComponent implements OnInit {
       this.userLoggedIn = true;
     }
 
+    this.catDB.getCategoriesList().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(objectsFromDB => {
+        //console.log(objectsFromDB)
+        this.catobj.category1 = objectsFromDB[0]["category1"];
+        this.catobj.category2 = objectsFromDB[0]["category2"];
+        this.catobj.category3 = objectsFromDB[0]["category3"];
+        this.catobj.category4 = objectsFromDB[0]["category4"];
+    });
+
 
   }
 
@@ -56,7 +78,7 @@ export class MainHeaderComponent implements OnInit {
   }
   logout()
   {
-    console.log("logoyt")
+    console.log("logout")
     this.authService.logOut()
   }
 

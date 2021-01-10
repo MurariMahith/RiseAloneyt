@@ -13,6 +13,7 @@ import { AuthServiceFirebase } from './../../services/authServiceFirebase'
 import { VideoType } from 'src/app/models/VideoType';
 
 import { map } from 'rxjs/operators';
+import { CategoriesDatabaseService } from 'src/app/services/categoriesDatabaseService';
 
 @Component({
   selector: 'app-dummy',
@@ -54,7 +55,18 @@ export class DummyComponent implements OnInit {
 
   uploaded : boolean = false;
 
-  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService, @Inject(AngularFireStorage) private fireStorage : AngularFireStorage, @Inject(AuthServiceFirebase) private authService : AuthServiceFirebase) { }
+  catobj = {
+    category1 : "`",
+    category2 : "`",
+    category3 : "`",
+    category4 : "`"
+  }
+
+  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase,
+              @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService, 
+              @Inject(AngularFireStorage) private fireStorage : AngularFireStorage, 
+              @Inject(AuthServiceFirebase) private authService : AuthServiceFirebase,
+              @Inject(CategoriesDatabaseService) private catDB :CategoriesDatabaseService) { }
 
   videocardsdatastatic;
 
@@ -82,6 +94,20 @@ export class DummyComponent implements OnInit {
       )
     ).subscribe(objectsFromDB => {
         this.videocardsdatastatic = objectsFromDB
+    });
+
+    this.catDB.getCategoriesList().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(objectsFromDB => {
+        console.log(objectsFromDB)
+        this.catobj.category1 = objectsFromDB[0]["category1"];
+        this.catobj.category2 = objectsFromDB[0]["category2"];
+        this.catobj.category3 = objectsFromDB[0]["category3"];
+        this.catobj.category4 = objectsFromDB[0]["category4"];
     });
 
     

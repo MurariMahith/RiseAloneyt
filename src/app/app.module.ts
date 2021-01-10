@@ -34,6 +34,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseDatabaseService } from './services/firebaseDatabaseService';
 import { AuthServiceFirebase } from './services/authServiceFirebase'
 import { FormsModule }   from '@angular/forms';
+import { CategoriesDatabaseService } from './services/categoriesDatabaseService';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { FormsModule }   from '@angular/forms';
   providers: [
     FirebaseDatabaseService,
     AngularFirestore,
-    AuthServiceFirebase
+    AuthServiceFirebase,
+    CategoriesDatabaseService
   ],
   bootstrap: [AppComponent]
 })

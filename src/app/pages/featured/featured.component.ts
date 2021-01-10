@@ -6,6 +6,8 @@ import { Videocard } from './../../models/NewVideoCard'
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FirebaseDatabaseService } from 'src/app/services/firebaseDatabaseService';
+import { CategoriesDatabaseService } from 'src/app/services/categoriesDatabaseService';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-featured',
@@ -20,7 +22,16 @@ export class FeaturedComponent implements OnInit {
   videoCards : Videocard[] = [];
   featuredVideoCards : Videocard[] = [];
 
-  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService) { }
+  catobj = {
+    category1 : "`",
+    category2 : "`",
+    category3 : "`",
+    category4 : "`"
+  }
+
+  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase, 
+              @Inject(FirebaseDatabaseService) private service : FirebaseDatabaseService,
+              @Inject(CategoriesDatabaseService) private catDB :CategoriesDatabaseService) { }
 
   ngOnInit(): void {    
     //filtering only featured video cards
@@ -31,6 +42,20 @@ export class FeaturedComponent implements OnInit {
       this.videoCards.push(this.testVar);  
       this.featuredVideoCards = this.videoCards.filter(o => o.videoType["featured"]==true);
       this.featuredVideoCards = this.featuredVideoCards.reverse();
+    });
+
+    this.catDB.getCategoriesList().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(objectsFromDB => {
+        //console.log(objectsFromDB)
+        this.catobj.category1 = objectsFromDB[0]["category1"];
+        this.catobj.category2 = objectsFromDB[0]["category2"];
+        this.catobj.category3 = objectsFromDB[0]["category3"];
+        this.catobj.category4 = objectsFromDB[0]["category4"];
     });
   }
 

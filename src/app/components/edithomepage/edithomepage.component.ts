@@ -33,6 +33,9 @@ export class EdithomepageComponent implements OnInit {
     dbPathLogoAndTitle = '/sanjaylogotitle';
 
     customersRef: AngularFireList<Object> = null;
+    customersRefCategories: AngularFireList<Object> = null;
+    customersRefSocialMediaPage: AngularFireList<Object> = null;
+    customersRefColors: AngularFireList<Object> = null;
 
     obj = {
         title : "",
@@ -41,9 +44,53 @@ export class EdithomepageComponent implements OnInit {
 
     uploaded : boolean = false;
 
+    category1 = "";
+    category2 = "";
+    category3 = "";
+    category4 = "";
+
+    catobj = {
+      category1 : "",
+      category2 : "",
+      category3 : "",
+      category4 : "",
+    }
+
+    dbPathCategories = '/categories';
+
+    socialobj = {
+      instagram : "",
+      whatsapp : "",
+      youtube : "",
+      discord : "",
+      facebook : "",
+      sourcecode : "",      
+    }
+
+    dbPathSocialMediaPage = '/socialmediawebsite'
+
+    colorsobj = {
+      primary : "",
+      secondary : "",
+      isNeon : false
+    }
+
+    dbPathColors = '/colors'
+
+    light :boolean = false;
+    dark :boolean = false;
+    deepdark :boolean = false;
+    neon :boolean = false;
+
   constructor(@Inject(AngularFireStorage) private fireStorage : AngularFireStorage,@Inject(AngularFireDatabase) private db: AngularFireDatabase) { 
     
     this.customersRef = db.list(this.dbPathLogoAndTitle);
+
+    this.customersRefCategories = db.list(this.dbPathCategories);
+
+    this.customersRefSocialMediaPage = db.list(this.dbPathSocialMediaPage);
+
+    this.customersRefColors = db.list(this.dbPathColors);
 
     var isUserLoggedIn = localStorage.getItem("loggedIn")
     if(!(isUserLoggedIn == "true"))
@@ -71,6 +118,37 @@ export class EdithomepageComponent implements OnInit {
           this.urlForView = objectsFromDB[0]["logoUrl"];
           this.urlForLogo = this.urlForView;
       });
+
+      this.customersRefCategories.snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ key: c.payload.key, ...c.payload.val() })
+          )
+        )
+      ).subscribe(objectsFromDB => {
+          //console.log(objectsFromDB)
+          this.category1 = objectsFromDB[0]["category1"];
+          this.category2 = objectsFromDB[0]["category2"];
+          this.category3 = objectsFromDB[0]["category3"];
+          this.category4 = objectsFromDB[0]["category4"];
+      });      
+    
+      this.customersRefSocialMediaPage.snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ key: c.payload.key, ...c.payload.val() })
+          )
+        )
+      ).subscribe(objectsFromDB => {
+          //console.log(objectsFromDB)
+          this.socialobj.instagram = objectsFromDB[0]["instagram"];
+          this.socialobj.whatsapp = objectsFromDB[0]["whatsapp"];
+          this.socialobj.youtube = objectsFromDB[0]["youtube"];
+          this.socialobj.discord = objectsFromDB[0]["discord"];
+          this.socialobj.facebook = objectsFromDB[0]["facebook"];
+          this.socialobj.sourcecode = objectsFromDB[0]["sourcecode"];
+      });
+    
       
   }
 
@@ -107,6 +185,76 @@ export class EdithomepageComponent implements OnInit {
     //     window.location.href="/editlogoandtitle";
     //   },500);
     //window.location.href="/editlogoandtitle"
+  }
+
+  async UpdateCategories()
+  {
+    console.log("updated categories")
+    this.customersRefCategories.remove();
+    this.catobj.category1 = this.category1
+    this.catobj.category2 = this.category2
+    this.catobj.category3 = this.category3
+    this.catobj.category4 = this.category4
+    //console.log(this.catobj)
+    this.customersRefCategories.push(this.catobj)
+    .then(() => {
+      window.location.href="/editlogoandtitle";
+    })
+    .catch(() => {
+      alert("Something's wrong, please try again later");
+      window.location.href="/editlogoandtitle";
+    })
+  }
+
+  async UpdateSocialMediaLinks()
+  {
+    this.customersRefSocialMediaPage.remove();
+    this.customersRefSocialMediaPage.push(this.socialobj)
+    .then(() => {
+      window.location.href="/editlogoandtitle";
+    })
+    .catch(() => {
+      alert("Something's wrong, please try again later");
+      window.location.href="/editlogoandtitle";
+    })
+
+  }
+
+  async UpdateColors(mode)
+  {
+    console.log(mode)
+    switch(mode) {
+      case 'light':
+        this.colorsobj.primary = "rgb(247,247,247)"
+        this.colorsobj.secondary = "white"
+        // code block
+        break;
+      case "dark":
+        this.colorsobj.primary = "#333545"
+        this.colorsobj.secondary = "rgb(31,37,51)"
+        // code block
+        break;
+      case "deepdark":
+        this.colorsobj.primary = "rgba(0, 0, 0, 0.904)"
+        this.colorsobj.secondary = "black"
+        break;
+      case "neon":
+        this.colorsobj.primary = "rgba(0, 0, 0, 0.904)"
+        this.colorsobj.secondary = "black"
+        this.colorsobj.isNeon = true
+        break
+    }
+    this.customersRefColors.remove();
+    this.customersRefColors.push(this.colorsobj)
+    .then(() => {
+      window.location.href="/editlogoandtitle";
+    })
+    .catch(() => {
+      alert("Something's wrong, please try again later");
+      window.location.href="/editlogoandtitle";
+    })
+
+    console.log(this.colorsobj)
   }
 
   scrollCardsUpdate()

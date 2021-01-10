@@ -26,6 +26,7 @@
     "devextreme-angular": "20.2.4",
     "firebase": "^7.24.0",
     "jquery": "^3.5.1",
+    "random": "^2.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

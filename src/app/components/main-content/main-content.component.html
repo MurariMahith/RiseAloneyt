@@ -13,10 +13,9 @@
 </div>
 <app-scrolling-content></app-scrolling-content>
 <!-- featured videos here -->
-<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">Featured</h1>
+<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category1}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;" >
-    <!-- <button type="button" class="btn btn-primary btn-lg" routerLink="/featured" >Go To Featured Videos</button> -->
-    <a href="/featured"><small>See All Featured >></small> </a>
+    <a href="/cat1"><small>See All {{catobj.category1}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;padding-top: 0%;">
     <div *ngFor='let videocard of featuredVideoCards'>
@@ -33,15 +32,11 @@
         </div>
     </div>
 </div>
-<!-- <div class="col-md-12 text-center">
-  <a href="/featured">See All Featured</a>
-</div> -->
 
 <!-- Most recent videos here -->
-<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">Most Recent</h1>
-<div  style="margin-right: 10%;display: flex;justify-content:flex-end;" >
-    <!-- <button type="button" class="btn btn-primary btn-lg" routerLink="/featured" >Go To Featured Videos</button> -->
-    <a href="/mostrecent"><small>See All Most Recent >></small> </a>
+<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category2}}</h1>
+<div  style="margin-right: 10%;display: flex;justify-content:flex-end;" >    
+    <a href="/cat2"><small>See All {{catobj.category2}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
     <div *ngFor='let videocard of mostRecentVideoCards'>
@@ -53,15 +48,12 @@
         </div>
     </div>
 </div>
-<!-- <div class="col-md-12 text-center">
-  <a href="/mostrecent">See All Most Recent</a>
-</div> -->
 
 <!-- Coming soon videos card-header -->
-<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">Tech</h1>
+<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category3}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;margin-top: 0%;" >
-    <!-- <button type="button" class="btn btn-primary btn-lg" routerLink="/featured" >Go To Featured Videos</button> -->
-    <a href="/tech"><small>See All Tech Content >></small> </a>
+    
+    <a href="/cat3"><small>See All {{catobj.category3}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
     <div *ngFor='let videocard of comingSoonVideoCards'>
@@ -79,10 +71,10 @@
 </div> -->
 
 <!-- top viewed videos here -->
-<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">Live Streams</h1>
+<h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category4}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;margin-top: 0%;" >
-    <!-- <button type="button" class="btn btn-primary btn-lg" routerLink="/featured" >Go To Featured Videos</button> -->
-    <a href="/live"><small>See All Live Streams >></small> </a>
+    
+    <a href="/cat4"><small>See All {{catobj.category4}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
     <div *ngFor='let videocard of topViewedVideoCards'>
@@ -113,9 +105,10 @@
 </div>
 
 <div style="display: flex;justify-content: center;">
-    <h1 style="color: aliceblue;"><small>Connect With Us on</small><br><a href="https://instagram.com/risealone_yt?igshid=1tj8g9owh9o8w"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;
-        <a href="https://chat.whatsapp.com/KS889SCAwJp2mDom4AkvHL"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>&nbsp;
-        <a href="https://www.youtube.com/channel/UCQBJ3aDHhSJZLduIP8Viqkw"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>&nbsp;
-        <a href="https://discord.gg/upgCAmM8"><i class="fa fa-gamepad" aria-hidden="true"></i></a>&nbsp;
-        <a href="https://github.com/MurariMahith"><i class="fa fa-code" aria-hidden="true"></i></a>
+    <h1 style="color: aliceblue;"><small>Connect With Us on</small><br>
+        <a href={{socialobj.instagram}}><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;
+        <a href={{socialobj.whatsapp}}><i class="fa fa-whatsapp" aria-hidden="true"></i></a>&nbsp;
+        <a href={{socialobj.youtube}}><i class="fa fa-youtube-play" aria-hidden="true"></i></a>&nbsp;
+        <a href={{socialobj.discord}}><i class="fa fa-gamepad" aria-hidden="true"></i></a>&nbsp;
+        <a href={{socialobj.sourcecode}}><i class="fa fa-code" aria-hidden="true"></i></a>
     </h1></div>
