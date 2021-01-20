@@ -35,6 +35,7 @@ import { FirebaseDatabaseService } from './services/firebaseDatabaseService';
 import { AuthServiceFirebase } from './services/authServiceFirebase'
 import { FormsModule }   from '@angular/forms';
 import { CategoriesDatabaseService } from './services/categoriesDatabaseService';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CategoriesDatabaseService } from './services/categoriesDatabaseService'
     AngularFireStorageModule,
     AngularFireAuthModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     FirebaseDatabaseService,

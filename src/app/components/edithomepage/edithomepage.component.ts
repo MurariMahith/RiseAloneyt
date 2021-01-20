@@ -72,7 +72,8 @@ export class EdithomepageComponent implements OnInit {
     colorsobj = {
       primary : "",
       secondary : "",
-      isNeon : false
+      isNeon : false,
+      mode : ""
     }
 
     dbPathColors = '/colors'
@@ -81,6 +82,14 @@ export class EdithomepageComponent implements OnInit {
     dark :boolean = false;
     deepdark :boolean = false;
     neon :boolean = false;
+
+    colorsobjAPPLY = {
+      primary : "",
+      secondary : "",
+      isNeon : false,
+      key : "",
+      mode : ""
+    }
 
   constructor(@Inject(AngularFireStorage) private fireStorage : AngularFireStorage,@Inject(AngularFireDatabase) private db: AngularFireDatabase) { 
     
@@ -101,6 +110,42 @@ export class EdithomepageComponent implements OnInit {
     else
     {
       console.log("signed in as admin no issues")
+    }
+
+    this.customersRefColors.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(objectsFromDB => {
+        console.log(objectsFromDB)
+        this.colorsobjAPPLY.primary = objectsFromDB[0]["primary"];
+        this.colorsobjAPPLY.secondary = objectsFromDB[0]["secondary"];
+        this.colorsobjAPPLY.isNeon = objectsFromDB[0]["isNeon"];
+        this.colorsobjAPPLY.mode = objectsFromDB[0]["mode"];
+    });
+
+    var headers = document.querySelectorAll<HTMLElement>('.dynamic-header');
+    for (var i = 0; i < headers.length; i++) 
+    {
+      headers[i].style.backgroundColor = this.colorsobjAPPLY.secondary
+      
+      if(this.colorsobjAPPLY.mode == "dark" || this.colorsobjAPPLY.mode == "deepdark")
+      {
+        headers[i].style.color = "white"
+      }
+    }
+    var bodies = document.querySelectorAll<HTMLElement>('.dynamic-body');
+    for (var i = 0; i < bodies.length; i++) 
+    {
+      bodies[i].style.backgroundColor = this.colorsobjAPPLY.primary
+      document.body.style.backgroundColor = this.colorsobjAPPLY.secondary
+      if(this.colorsobjAPPLY.mode == "dark" || this.colorsobjAPPLY.mode == "deepdark")
+      {
+        headers[i].style.color = "white"     
+        document.body.style.color = "white"  
+      }
     }
   }
 
@@ -148,6 +193,8 @@ export class EdithomepageComponent implements OnInit {
           this.socialobj.facebook = objectsFromDB[0]["facebook"];
           this.socialobj.sourcecode = objectsFromDB[0]["sourcecode"];
       });
+
+      
     
       
   }
@@ -227,21 +274,25 @@ export class EdithomepageComponent implements OnInit {
       case 'light':
         this.colorsobj.primary = "rgb(247,247,247)"
         this.colorsobj.secondary = "white"
+        this.colorsobj.mode = mode
         // code block
         break;
       case "dark":
         this.colorsobj.primary = "#333545"
         this.colorsobj.secondary = "rgb(31,37,51)"
+        this.colorsobj.mode = mode
         // code block
         break;
       case "deepdark":
         this.colorsobj.primary = "rgba(0, 0, 0, 0.904)"
         this.colorsobj.secondary = "black"
+        this.colorsobj.mode = mode
         break;
       case "neon":
         this.colorsobj.primary = "rgba(0, 0, 0, 0.904)"
         this.colorsobj.secondary = "black"
         this.colorsobj.isNeon = true
+        this.colorsobj.mode = mode
         break
     }
     this.customersRefColors.remove();
