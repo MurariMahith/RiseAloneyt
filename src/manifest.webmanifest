@@ -55,5 +55,72 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+       "name": "Home",
+       "description": "Home page of RiseAloneYt",
+       "url": "/home",
+       "icons": [
+          {
+             "src": "/icons/logo96x96.png",
+             "sizes": "96x96",
+             "type": "image/png",
+             "purpose": "any"
+          }
+       ]
+    },
+    {
+      "name": "Featured",
+      "description": "Featured",
+      "url": "/cat1",
+      "icons": [
+         {
+            "src": "/icons/logo96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any"
+         }
+      ]
+   },
+   {
+       "name": "Search",
+       "description": "Search entire RiseAloneYt Collection",
+       "url": "/search",
+       "icons": [
+          {
+             "src": "/icons/logo96x96.png",
+             "sizes": "96x96",
+             "type": "image/png",
+             "purpose": "any"
+          }
+       ]
+    },
+    {
+      "name": "Admin?",
+      "description": "Are you admin?",
+      "url": "/admin",
+      "icons": [
+         {
+            "src": "/icons/logo96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any"
+         }
+      ]
+   },
+   {
+    "name": "AboutUs",
+    "description": "About RiseAloneYt",
+    "url": "/aboutus",
+    "icons": [
+       {
+          "src": "/icons/logo96x96.png",
+          "sizes": "96x96",
+          "type": "image/png",
+          "purpose": "any"
+       }
+    ]
+  }
+ ]
 }

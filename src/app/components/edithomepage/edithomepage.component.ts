@@ -126,27 +126,27 @@ export class EdithomepageComponent implements OnInit {
         this.colorsobjAPPLY.mode = objectsFromDB[0]["mode"];
     });
 
-    var headers = document.querySelectorAll<HTMLElement>('.dynamic-header');
-    for (var i = 0; i < headers.length; i++) 
-    {
-      headers[i].style.backgroundColor = this.colorsobjAPPLY.secondary
+    // var headers = document.querySelectorAll<HTMLElement>('.dynamic-header');
+    // for (var i = 0; i < headers.length; i++) 
+    // {
+    //   headers[i].style.backgroundColor = this.colorsobjAPPLY.secondary
       
-      if(this.colorsobjAPPLY.mode == "dark" || this.colorsobjAPPLY.mode == "deepdark")
-      {
-        headers[i].style.color = "white"
-      }
-    }
-    var bodies = document.querySelectorAll<HTMLElement>('.dynamic-body');
-    for (var i = 0; i < bodies.length; i++) 
-    {
-      bodies[i].style.backgroundColor = this.colorsobjAPPLY.primary
-      document.body.style.backgroundColor = this.colorsobjAPPLY.secondary
-      if(this.colorsobjAPPLY.mode == "dark" || this.colorsobjAPPLY.mode == "deepdark")
-      {
-        headers[i].style.color = "white"     
-        document.body.style.color = "white"  
-      }
-    }
+    //   if(this.colorsobjAPPLY.mode == "dark" || this.colorsobjAPPLY.mode == "deepdark")
+    //   {
+    //     headers[i].style.color = "white"
+    //   }
+    // }
+    // var bodies = document.querySelectorAll<HTMLElement>('.dynamic-body');
+    // for (var i = 0; i < bodies.length; i++) 
+    // {
+    //   bodies[i].style.backgroundColor = this.colorsobjAPPLY.primary
+    //   document.body.style.backgroundColor = this.colorsobjAPPLY.secondary
+    //   if(this.colorsobjAPPLY.mode == "dark" || this.colorsobjAPPLY.mode == "deepdark")
+    //   {
+    //     headers[i].style.color = "white"     
+    //     document.body.style.color = "white"  
+    //   }
+    // }
   }
 
   ngOnInit(): void {
