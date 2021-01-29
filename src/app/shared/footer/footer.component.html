@@ -2,38 +2,38 @@
     <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div> -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(31,37,51);">
-    <a class="navbar-brand" href="/admin" style="color: white;">ADMIN</a>
+    <a class="navbar-brand" routerLink="/admin" style="color: white;">ADMIN</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: white;">
         <span class="navbar-toggler-icon" id="footerid"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="/home" style="color: white;">Home</a>
+        <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/home" style="color: white;">Home</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/cat1" style="color: white;">{{catobj.category1}}</a>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/cat1" style="color: white;">{{catobj.category1}}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/cat2" style="color: white;">{{catobj.category2}}</a>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/cat2" style="color: white;">{{catobj.category2}}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/cat3" style="color: white;">{{catobj.category3}}</a>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/cat3" style="color: white;">{{catobj.category3}}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/cat4" style="color: white;">{{catobj.category4}}</a>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/cat4" style="color: white;">{{catobj.category4}}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/aboutus" style="color: white;">About Us</a>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/aboutus" style="color: white;">About Us</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/search" style="color: white;">Search</a>
+        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/search" style="color: white;">Search</a>
         </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <!-- <button class="btn my-2 my-sm-0">Top</button> -->
-        <a class="nav-link" href="/aboutdevs" style="color: white;" title="Takes you to the developers page">About Developers <span class="badge badge-dark">New</span></a>
+        <a class="nav-link" routerLink="/aboutdevs" style="color: white;" title="Takes you to the developers page">About Developers <span class="badge badge-dark">New</span></a>
     </form>
     </div>
 </nav>

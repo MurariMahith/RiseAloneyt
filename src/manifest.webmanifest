@@ -63,7 +63,7 @@
        "url": "/home",
        "icons": [
           {
-             "src": "/icons/logo96x96.png",
+             "src": "assets/icons/logo96x96.png",
              "sizes": "96x96",
              "type": "image/png",
              "purpose": "any"
@@ -76,7 +76,7 @@
       "url": "/cat1",
       "icons": [
          {
-            "src": "/icons/logo96x96.png",
+            "src": "assets/icons/logo96x96.png",
             "sizes": "96x96",
             "type": "image/png",
             "purpose": "any"
@@ -89,7 +89,7 @@
        "url": "/search",
        "icons": [
           {
-             "src": "/icons/logo96x96.png",
+             "src": "assets/icons/logo96x96.png",
              "sizes": "96x96",
              "type": "image/png",
              "purpose": "any"
@@ -102,7 +102,7 @@
       "url": "/admin",
       "icons": [
          {
-            "src": "/icons/logo96x96.png",
+            "src": "assets/icons/logo96x96.png",
             "sizes": "96x96",
             "type": "image/png",
             "purpose": "any"
@@ -115,7 +115,7 @@
     "url": "/aboutus",
     "icons": [
        {
-          "src": "/icons/logo96x96.png",
+          "src": "assets/icons/logo96x96.png",
           "sizes": "96x96",
           "type": "image/png",
           "purpose": "any"

@@ -12,7 +12,7 @@ import { CategoriesDatabaseService } from './../../services/categoriesDatabaseSe
 })
 export class MainHeaderComponent implements OnInit {
 
-  urlForLogo : string = "./../../../assets/images/loadingheader3.gif";
+  urlForLogo : string = "./../../../assets/images/loadingheader2.gif";
   title : string = "";
 
   dbPathLogoAndTitle = '/sanjaylogotitle';

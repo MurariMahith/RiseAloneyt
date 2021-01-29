@@ -15,7 +15,7 @@
 <!-- featured videos here -->
 <h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category1}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;" >
-    <a href="/cat1"><small>See All {{catobj.category1}} >></small> </a>
+    <a routerLink="/cat1"><small>See All {{catobj.category1}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;padding-top: 0%;">
     <div *ngFor='let videocard of featuredVideoCards'>
@@ -36,7 +36,7 @@
 <!-- Most recent videos here -->
 <h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category2}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;" >    
-    <a href="/cat2"><small>See All {{catobj.category2}} >></small> </a>
+    <a routerLink="/cat2"><small>See All {{catobj.category2}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
     <div *ngFor='let videocard of mostRecentVideoCards'>
@@ -53,7 +53,7 @@
 <h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category3}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;margin-top: 0%;" >
     
-    <a href="/cat3"><small>See All {{catobj.category3}} >></small> </a>
+    <a routerLink="/cat3"><small>See All {{catobj.category3}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
     <div *ngFor='let videocard of comingSoonVideoCards'>
@@ -74,7 +74,7 @@
 <h1 class="d-flex justify-content-center" style="padding-top:30px;color: aliceblue;">{{catobj.category4}}</h1>
 <div  style="margin-right: 10%;display: flex;justify-content:flex-end;margin-top: 0%;" >
     
-    <a href="/cat4"><small>See All {{catobj.category4}} >></small> </a>
+    <a routerLink="/cat4"><small>See All {{catobj.category4}} >></small> </a>
 </div>
 <div class="main-content" style="padding: 30px;display: flex;flex-wrap: wrap;justify-content: center;">
     <div *ngFor='let videocard of topViewedVideoCards'>

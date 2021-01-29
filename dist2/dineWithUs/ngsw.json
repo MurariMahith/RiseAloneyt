@@ -1,0 +1,140 @@
+{
+  "configVersion": 1,
+  "timestamp": 1611918142191,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.352d915abb81476e1b15.js",
+        "/manifest.webmanifest",
+        "/polyfills.186ec0f2c665a874ef8a.js",
+        "/runtime.b6bef7c4f2cfd89061d2.js",
+        "/scripts.04da452afd00bffae5fb.js",
+        "/styles.3451472e979002599b59.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/logo128x128.png",
+        "/assets/icons/logo144x144.png",
+        "/assets/icons/logo152x152.png",
+        "/assets/icons/logo192x192.png",
+        "/assets/icons/logo384x384.png",
+        "/assets/icons/logo512x512.png",
+        "/assets/icons/logo72x72.png",
+        "/assets/icons/logo96x96.png",
+        "/assets/images/card1.jpeg",
+        "/assets/images/card4.jpeg",
+        "/assets/images/deletegif.gif",
+        "/assets/images/ganjay.jpeg",
+        "/assets/images/loading.gif",
+        "/assets/images/loadinggif1.gif",
+        "/assets/images/loadinggif2.gif",
+        "/assets/images/loadinggif3.gif",
+        "/assets/images/loadinggif4.gif",
+        "/assets/images/loadingheader.gif",
+        "/assets/images/loadingheader2.gif",
+        "/assets/images/loadingheader3.gif",
+        "/assets/images/lodda.jpeg",
+        "/assets/images/logo.jpg",
+        "/assets/images/mahith.jpeg",
+        "/assets/images/mahith1.jpeg",
+        "/assets/images/mukesh.jpeg",
+        "/assets/images/noimage.png",
+        "/assets/images/nophoto.png",
+        "/assets/images/prasanna.jpeg",
+        "/assets/images/rohith.jpeg",
+        "/assets/images/scroll1.jpeg",
+        "/assets/images/scroll2.jpeg",
+        "/assets/images/scroll3.jpeg",
+        "/assets/images/scroll4.jpeg",
+        "/assets/images/tick.png",
+        "/dxicons.4519aea339b63bce6e18.woff2",
+        "/dxicons.f1829bb1cb996a760a81.ttf",
+        "/dxicons.fd4164a956b105e4ec9f.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/logo128x128.png": "4f276392c332184feb8f5ef817a7df1bf9149f3e",
+    "/assets/icons/logo144x144.png": "c4131134268b0478898177cb68ab38e54e33b1df",
+    "/assets/icons/logo152x152.png": "dbbeeab15ca68667143af81232b25a199ce12132",
+    "/assets/icons/logo192x192.png": "69fad311ee827b613e0b3397adbac7ad5881c3ac",
+    "/assets/icons/logo384x384.png": "33cc4c2734af67b65401a821183cba7f0047440d",
+    "/assets/icons/logo512x512.png": "4ca9422979fe4ac5421c2e7e8cf600a383ab48ef",
+    "/assets/icons/logo72x72.png": "70c59935c5d81063dcfabad2b70cda8347dd082e",
+    "/assets/icons/logo96x96.png": "979cc72f272057cd25dcae4334d373735acd2565",
+    "/assets/images/card1.jpeg": "efc7703ace76a5b00c4dad024534df964197244d",
+    "/assets/images/card4.jpeg": "0aeb69ecbdbb0356d28c631da1674f031a787d6c",
+    "/assets/images/deletegif.gif": "b4c5f2247dd49be85ef97a7c7b5e91b443911889",
+    "/assets/images/ganjay.jpeg": "7d7812c0a480bf738133d03e9f52f54e3fa12607",
+    "/assets/images/loading.gif": "43ec26b2556ddfdbb4758f487ec671f833ba7019",
+    "/assets/images/loadinggif1.gif": "0f618815d5df138caefc9b2b31022b4b7ced8454",
+    "/assets/images/loadinggif2.gif": "da97024c9a1edac5668073fbe392c3c2879e7902",
+    "/assets/images/loadinggif3.gif": "a5b0efcc2b377290635609ff7781196d3d9ecb41",
+    "/assets/images/loadinggif4.gif": "be829096d513b91570859f2ddb2de94e24fc7fa3",
+    "/assets/images/loadingheader.gif": "0e820eb74e061697bd3887f5e4ef80f40bf23974",
+    "/assets/images/loadingheader2.gif": "68fe49cc7fee3e7d645772e4ada9d1c40eb610da",
+    "/assets/images/loadingheader3.gif": "7948b5285f0f9fcadcc5912bce008101d7e6e5d7",
+    "/assets/images/lodda.jpeg": "968863c0614df5391e15dfe0f3fc890c5b0a6087",
+    "/assets/images/logo.jpg": "9dd7db4809b1d9e2f088714e13ffe442b9356fa9",
+    "/assets/images/mahith.jpeg": "82bd6b67eeec54108c5df89d11508f43651ec01c",
+    "/assets/images/mahith1.jpeg": "bc6a1f8907d176d34056a0ff573ae6c3fe510b42",
+    "/assets/images/mukesh.jpeg": "fdbfee570022b5b6cfcc0f8dce446c3b565cb063",
+    "/assets/images/noimage.png": "767334d2a003ed22e546844fcf0e4d3b6ced7e99",
+    "/assets/images/nophoto.png": "802e743f8b4b5c95513c10ccce7a78521719b399",
+    "/assets/images/prasanna.jpeg": "dd658c070cf5e53988d404de02ab0720278226a9",
+    "/assets/images/rohith.jpeg": "57b8f9dc7e8c41159baf0fd6c3a9514226825e77",
+    "/assets/images/scroll1.jpeg": "1cb5875f4f701a0cf2569f0e0d3eb88c370a86af",
+    "/assets/images/scroll2.jpeg": "367a5878ffc5e1bbe04b21019dd7806b405dec6a",
+    "/assets/images/scroll3.jpeg": "8d0a45c18c70d15e8f1d7169ce2d7099f2ad14cc",
+    "/assets/images/scroll4.jpeg": "8916ceadb6eb5dc84a23668839531ebee207a174",
+    "/assets/images/tick.png": "336b64f3eb0b098eda28a942dc5ed58fd1076d6f",
+    "/dxicons.4519aea339b63bce6e18.woff2": "613d7de00553ccc4eb85aa79c3629f02aee19fd3",
+    "/dxicons.f1829bb1cb996a760a81.ttf": "61f74fc5fde363001046bd023497b759c35a8d55",
+    "/dxicons.fd4164a956b105e4ec9f.woff": "49e11ed241ec673b87f450268d77179b385e3641",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "2df3558a0d028c017debd04796f530df634d5de9",
+    "/main.352d915abb81476e1b15.js": "00630989fae0c8bbf3e335e3577c0b03f7066d91",
+    "/manifest.webmanifest": "0586461b9961019976bab588bae5b5f42e858571",
+    "/polyfills.186ec0f2c665a874ef8a.js": "5b209999501f8ff172083b70df85eb10f5ddabe6",
+    "/runtime.b6bef7c4f2cfd89061d2.js": "21109b3561b5a6c3ed51bc3015962f05da8e57b3",
+    "/scripts.04da452afd00bffae5fb.js": "897e0ef841134f34e6809afc8026ed8b344eae7a",
+    "/styles.3451472e979002599b59.css": "2fff605c0a7167912e2fae5c2ddf27dd49fb3ad2"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
